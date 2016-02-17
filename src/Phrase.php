@@ -3,13 +3,17 @@
     {
         function findReplace ($phrase, $word_to_replace, $replace_with)
         {
-            if ($word_to_replace == $phrase) {
-                $end_phrase = $replace_with;
+            $phrase = explode(" ", $phrase);
+            foreach ($phrase as $index => $word) {
+                if ($word_to_replace == $word) {
+                    $phrase[$index] = $replace_with;
+                }
 
-            } elseif ($word_to_replace != $phrase) {
-                $end_phrase = $phrase;
             }
-            return $end_phrase;
+            $phrase = implode(" ", $phrase);
+            return $phrase;
+
+
         }
 
     }

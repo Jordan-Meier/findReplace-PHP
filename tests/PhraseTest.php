@@ -9,32 +9,67 @@
         {
             //Arrange
             $test_Phrase = new Phrase;
-            $input1 = "howdy";
-            $input2 = "hey";
-            $input3 = "hi";
+            $phrase = "howdy";
+            $word_to_replace = "hey";
+            $replace_with = "hi";
 
             //Act
-            $result1 = $test_Phrase->findReplace($input1, $input2, $input3);
+            $result1 = $test_Phrase->findReplace($phrase, $word_to_replace, $replace_with);
 
 
             //Assert
             $this->assertEquals("howdy", $result1);
 
         }
+
         function test_findReplace_singleWordMatch()
         {
             //Arrange
             $test_Phrase = new Phrase;
-            $input1 = "howdy";
-            $input2 = "howdy";
-            $input3 = "hi";
+            $phrase = "howdy";
+            $word_to_replace = "howdy";
+            $replace_with = "hi";
 
             //Act
-            $result1 = $test_Phrase->findReplace($input1, $input2, $input3);
+            $result1 = $test_Phrase->findReplace($phrase, $word_to_replace, $replace_with);
 
 
             //Assert
             $this->assertEquals("hi", $result1);
+
+        }
+
+        function test_findReplace_twoWordsNoMatch()
+        {
+            //Arrange
+            $test_Phrase = new Phrase;
+            $phrase = "howdy partner";
+            $word_to_replace = "hey";
+            $replace_with = "hullo";
+
+            //Act
+            $result1 = $test_Phrase->findReplace($phrase, $word_to_replace, $replace_with);
+
+
+            //Assert
+            $this->assertEquals("howdy partner", $result1);
+
+        }
+
+        function test_findReplace_twoWordsOneMatch()
+        {
+            //Arrange
+            $test_Phrase = new Phrase;
+            $phrase = "howdy partner";
+            $word_to_replace = "howdy";
+            $replace_with = "hullo";
+
+            //Act
+            $result1 = $test_Phrase->findReplace($phrase, $word_to_replace, $replace_with);
+
+
+            //Assert
+            $this->assertEquals("hullo partner", $result1);
 
         }
 
