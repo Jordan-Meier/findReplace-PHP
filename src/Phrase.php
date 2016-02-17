@@ -14,6 +14,11 @@
             return $phrase;
         }
 
+        function findReplacePartial ($phrase, $word_to_replace, $replace_with)
+        {
+            return str_replace($word_to_replace, $replace_with, $phrase);
+        }
+
     }
 
 

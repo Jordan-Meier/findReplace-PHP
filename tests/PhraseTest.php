@@ -132,6 +132,72 @@
         //
         // }
 
+        function test_findReplacePartial_singleWordNoMatch()
+        {
+            //Arrange
+            $test_Phrase = new Phrase;
+            $phrase = "cat";
+            $word_to_replace = "bat";
+            $replace_with = "dog";
+
+            //Act
+            $result1 = $test_Phrase->findReplacePartial($phrase, $word_to_replace, $replace_with);
+
+            //Assert
+            $this->assertEquals("cat", $result1);
+
+        }
+
+        function test_findReplacePartial_singleWordMatch()
+        {
+            //Arrange
+            $test_Phrase = new Phrase;
+            $phrase = "cat";
+            $word_to_replace = "cat";
+            $replace_with = "dog";
+
+            //Act
+            $result1 = $test_Phrase->findReplacePartial($phrase, $word_to_replace, $replace_with);
+
+            //Assert
+            $this->assertEquals("dog", $result1);
+
+        }
+
+        function test_findReplacePartial_oneWordPartialMatch()
+        {
+            //Arrange
+            $test_Phrase = new Phrase;
+            $phrase = "cathedral";
+            $word_to_replace = "cat";
+            $replace_with = "dog";
+
+            //Act
+            $result1 = $test_Phrase->findReplacePartial($phrase, $word_to_replace, $replace_with);
+
+            //Assert
+            $this->assertEquals("doghedral", $result1);
+
+        }
+        function test_findReplacePartial_severalWordsPartialMatch()
+        {
+            //Arrange
+            $test_Phrase = new Phrase;
+            $phrase = "I like to walk my cat to cathedral park.";
+            $word_to_replace = "cat";
+            $replace_with = "dog";
+
+            //Act
+            $result1 = $test_Phrase->findReplacePartial($phrase, $word_to_replace, $replace_with);
+
+            //Assert
+            $this->assertEquals("I like to walk my dog to doghedral park.", $result1);
+
+        }
+
+
+
+
 
 
     }
