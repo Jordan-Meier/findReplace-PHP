@@ -2,32 +2,26 @@
 <html>
     <head>
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
-        <title></title>
+        <title>Find and Replace</title>
     </head>
     <body>
         <div class="container">
-            <h1></h1>
-            <form action="/rock_paper_scissors">
+            <h1>Find and Replace</h1>
+            <form action="/find_replace">
                 <div class="form-group">
-                    <label for="input_1">Player 1</label>
-                        <select name= "input_1" id="input_1" class="form-control">
-                            <option>rock</option>
-                            <option>paper</option>
-                            <option>scissors</option>
-                        </select><br>
-                    <label for="input_2">Player 2</label>
-                        <select name= "input_2" id="input_2" class="form-control">
-                            <option>rock</option>
-                            <option>paper</option>
-                            <option>scissors</option>
-                        </select><br>
+                    <label for="phrase">Enter a phrase</label>
+                    <input type="text" id="phrase" name="phrase" class='form-control'><br>
+                    <label for="word_to_replace">Enter a word in the phrase to replace</label>
+                    <input type="text" id="word_to_replace" name="word_to_replace" class='form-control'><br>
+                    <label for="replace_with">Replace word with</label>
+                    <input type="text" id="replace_with" name="replace_with" class='form-control'><br>
                 </div>
-                <button class="btn btn-success" type="submit">Play!</button>
+                <button class="btn btn-success" type="submit">New Phrase</button>
             </form>
             <hr>
             <br>
             <div class="well">
-                <h3>Who won?</h3>
+                <h3>New phrase:</h3>
                 <p>
                     {{ results }}
                 </p>

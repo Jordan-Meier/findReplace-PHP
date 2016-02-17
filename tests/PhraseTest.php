@@ -179,6 +179,7 @@
             $this->assertEquals("doghedral", $result1);
 
         }
+
         function test_findReplacePartial_severalWordsPartialMatch()
         {
             //Arrange
@@ -194,11 +195,6 @@
             $this->assertEquals("I like to walk my dog to doghedral park.", $result1);
 
         }
-
-
-
-
-
 
     }
 
