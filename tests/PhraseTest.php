@@ -9,16 +9,32 @@
         {
             //Arrange
             $test_Phrase = new Phrase;
-            $input1 = "rock";
-            $input2 = "scissors";
-            $input3 = "paper";
+            $input1 = "howdy";
+            $input2 = "hey";
+            $input3 = "hi";
 
             //Act
-            $result1 = $test_RockPaperScissors->playGame($input1, $input2, $input3);
+            $result1 = $test_Phrase->findReplace($input1, $input2, $input3);
 
 
             //Assert
-            $this->assertEquals("draw", $result1);
+            $this->assertEquals("howdy", $result1);
+
+        }
+        function test_findReplace_singleWordMatch()
+        {
+            //Arrange
+            $test_Phrase = new Phrase;
+            $input1 = "howdy";
+            $input2 = "howdy";
+            $input3 = "hi";
+
+            //Act
+            $result1 = $test_Phrase->findReplace($input1, $input2, $input3);
+
+
+            //Assert
+            $this->assertEquals("hi", $result1);
 
         }
 
