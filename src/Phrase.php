@@ -1,7 +1,7 @@
 <?php
     class Phrase
     {
-        function findReplace ($phrase, $word_to_replace, $replace_with)
+        function findReplaceExact ($phrase, $word_to_replace, $replace_with)
         {
             $phrase = explode(" ", $phrase);
             foreach ($phrase as $index => $word) {
@@ -12,8 +12,6 @@
             }
             $phrase = implode(" ", $phrase);
             return $phrase;
-
-
         }
 
     }
