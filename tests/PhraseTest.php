@@ -105,7 +105,7 @@
         {
             //Arrange
             $test_Phrase = new Phrase;
-            $phrase = "My dog is cool. My dog is the best dog";
+            $phrase = "my dog is cool. my dog is the best dog";
             $word_to_replace = "dog";
             $replace_with = "cat";
 
@@ -113,7 +113,23 @@
             $result1 = $test_Phrase->findReplaceExact($phrase, $word_to_replace, $replace_with);
 
             //Assert
-            $this->assertEquals("My cat is cool. My cat is the best cat", $result1);
+            $this->assertEquals("my cat is cool. my cat is the best cat", $result1);
+
+        }
+
+        function test_findReplaceExact_caseSensitivity()
+        {
+            //Arrange
+            $test_Phrase = new Phrase;
+            $phrase = "My pet dog is great. My DoG is the best";
+            $word_to_replace = "dOg";
+            $replace_with = "Cat";
+
+            //Act
+            $result1 = $test_Phrase->findReplaceExact($phrase, $word_to_replace, $replace_with);
+
+            //Assert
+            $this->assertEquals("my pet cat is great. my cat is the best", $result1);
 
         }
 
